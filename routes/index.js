@@ -6,11 +6,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/comandos', (req, res) => {
-	res.render('index', { title: "comandos", h1: "comandos crisvirgen"});
+	res.render('commands.ejs', { title: "comandos", h1: "comandos crisvirgen"});
 });
 
 router.get('/contacto', (req, res) => {
-	res.render('index', { title: "Contacto", h1: "contacto crisvirgen"});
+	res.render('contact.ejs', { title: "Contacto", h1: "contacto crisvirgen"});
 });
 
 module.exports = router;

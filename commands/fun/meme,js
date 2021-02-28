@@ -1,0 +1,57 @@
+const { meme } = require('memejs')
+const Discord = require("discord.js");
+
+module.exports = {
+  commands: ['meme'],
+  expectedArgs: '',
+  permissionError: 'Necesitas permisos',
+  minArgs: 0,
+  maxArgs: null,
+  callback: (message, args, text) => {
+    
+    if (args[0] === "help"){
+      
+      const he = new Discord.MessageEmbed()
+      .setTitle("**Meme**")
+      .setDescription("manda un meme en español de reddit")
+      .addField("modo de uso", `c!meme`)
+      .setColor("FF0000")
+      
+      message.channel.send(he)
+      
+      
+    } else {
+    
+    
+        message.channel.startTyping()
+        let memes = ["MemesESP", "spanishmemes", "SpanishMeme", "mexico", "MemesEnEspanol"]
+        let random = Math.floor(Math.random() * memes.length)
+        meme(memes[random], function (err, data) {
+            if (err) {
+                console.error(err)
+                message.channel.send('Hubo un error')
+                    .then(m => m.delete({ timeout: 10000 }))
+                message.channel.stopTyping()
+                return
+            }
+            const memeE = new Discord.MessageEmbed()
+	.setColor('RANDOM')
+	.setTitle(data.title)
+	.setImage(data.url);
+          
+ 
+            message.channel.send(memeE).catch(err => {
+
+                    message.channel.send('Hubo un error')
+                        .then(m => m.delete({ timeout: 10000 }))
+                    message.channel.stopTyping()
+                    return
+                })
+                
+        
+        message.channel.stopTyping()
+    })
+    }
+  },
+  requiredRoles: [],
+}
