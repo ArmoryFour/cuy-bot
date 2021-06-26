@@ -50,19 +50,19 @@ module.exports = {
    
    const userE = new Discord.MessageEmbed()
 	.setColor('RANDOM')
-	.setTitle("ℹ️ informacion sobre ")
+	.setTitle("ℹ️ informacion sobre ℹ️")
   .setDescription(user.user.username)
 
-.addField("👋 Se unió el",`${moment.utc(user.joinedAt).format('LLLL')}`)
+.addField("Se unió el",`👋 ${moment.utc(user.joinedAt).format('LLLL')}`)
 
-.addField("🖌️ Cuenta creada el "
-, `${moment(user.user.createdAt).format("LLLL")}`)
+.addField("Cuenta creada el "
+, `🖌️ ${moment(user.user.createdAt).format("LLLL")}`)
 
-.addField("👑 Rol mas alto", `<@&${e}>`)
+.addField(" Rol mas alto", `👑 <@&${e}>`)
 
 
 .setThumbnail(user.user.displayAvatarURL())
-.addField(`${em} Es un `, `${raza}`)
+.addField(`Es un `, `${em} ${raza}`)
 .setFooter(user.user.tag, "https://cdn.discordapp.com/attachments/781563687026294797/790417788107096134/images.png")
 
 message.channel.send(userE);

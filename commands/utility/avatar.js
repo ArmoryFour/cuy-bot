@@ -29,17 +29,17 @@ var un;
   
   if (!args[0]){
     
- img = message.author.displayAvatarURL({size: 1024});
+ img = message.author.displayAvatarURL({size: 1024, dynamic : true});
    un = message.author.username;
    
-  } else if (args[0] === "guild" || args === "server"){
+  } else if (args[0] === "guild" || args[0] === "server"){
       
-      img = message.guild.iconURL({size: 1024});
+      img = message.guild.iconURL({size: 1024, dynamic : true});
       un = message.guild.name;
       console.log(img)
     } else {
     
-    img = member.user.displayAvatarURL({size: 1024});
+    img = member.user.displayAvatarURL({size: 1024, dynamic : true});
     un = member.user.username;
    
   } 
